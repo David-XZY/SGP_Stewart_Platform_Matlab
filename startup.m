@@ -1,0 +1,17 @@
+% startup.m  
+disp("== Project startup: StewartUCU ==");
+
+% 1) 基本环境
+clearvars; close all; clc;
+
+% 2) 加载默认参数
+if exist("platform_default", "file")
+    params = platform_default();
+    params = stewart.initPlatform(params);
+    assignin("base", "params", params);
+end
+
+% 3) 准备输出目录
+if ~exist(fullfile(pwd, "data", "logs"), "dir")
+    mkdir(fullfile(pwd, "data", "logs"));
+end
