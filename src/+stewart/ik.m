@@ -9,7 +9,6 @@ function [L, s_O, l_O, B_O] = ik(pose, params)
 %   B_O : 3x6 平台铰点在{O}的坐标
 
 pose = pose(:).';   % 强制成 1x6
-assert(numel(pose)==6, "pose 必须是 [x y z roll pitch yaw]");
 
 x = pose(1); y = pose(2); z = pose(3);
 roll = pose(4); pitch = pose(5); yaw = pose(6);
@@ -26,8 +25,7 @@ l_O = zeros(3,6);
 B_O = zeros(3,6);
 
 for i = 1:6
-    j = params.cache.connB(i);
-    B_O(:,i) = p_O + R_OP * B_P(:,j);   % 平台点从{P}转到{O}再平移
+    B_O(:,i) = p_O + R_OP * B_P(:,i);   % 平台点从{P}转到{O}再平移
     l_O(:,i) = B_O(:,i) - A_O(:,i);     % 腿向量
     Li = norm(l_O(:,i));
     if Li < 1e-9

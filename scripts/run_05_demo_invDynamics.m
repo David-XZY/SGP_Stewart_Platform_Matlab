@@ -2,9 +2,9 @@
 params = platform_default();
 params = stewart.initPlatform(params);
 
-pose = [0 0 0.8  0 0 0];
-vel  = zeros(1,6);
-acc  = zeros(1,6);
+pose = params.init.pose;
+vel  = params.init.vel;
+acc  = params.init.acc;
 
 tau_dyn = stewart.invDynamics_vw(pose, vel, acc, params);   % 默认仅重力
 disp("tau_dyn = "); disp(tau_dyn);

@@ -13,8 +13,6 @@ rB = params.geom.rB;
 thetaA = params.geom.thetaA;
 thetaB = params.geom.thetaB;
 
-assert(numel(thetaA) == 6 && numel(thetaB) == 6, ...
-    "thetaA/thetaB 必须都是 1x6（对应 6 个铰点）");
 
 % A_O：基座点在 {O}，z=0
 A_O = zeros(3,6);
@@ -31,5 +29,4 @@ end
 % 缓存
 params.cache.A_O = A_O;
 params.cache.B_P = B_P;
-params.cache.connB = params.geom.connB;
 end

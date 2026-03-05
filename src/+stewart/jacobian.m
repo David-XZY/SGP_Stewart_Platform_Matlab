@@ -18,8 +18,7 @@ J = zeros(6,6);
 
 for i = 1:6
     % r_PB 在 {O} 的表达（从 P 原点指向第 i 个平台铰点 B_i）
-    j = params.cache.connB(i);
-    r_PB_O = R_OP * B_P(:,j);
+    r_PB_O = R_OP * B_P(:,i);
 
     % 腿向量（从 A_i 指向 B_i），注意要加平移 p_O
     l_O = p_O + r_PB_O - A_O(:,i);

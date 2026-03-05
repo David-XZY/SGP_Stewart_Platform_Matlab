@@ -2,7 +2,7 @@
 params = platform_default();
 params = stewart.initPlatform(params);
 
-pose = [0 0 0.8  0 0 0];
+pose = params.init.pose;
 
 [J, kappa] = stewart.jacobian(pose, params);
 disp("cond(J) = " + kappa);
