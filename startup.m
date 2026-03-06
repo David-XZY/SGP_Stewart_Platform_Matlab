@@ -1,8 +1,10 @@
+clc;
+
 % startup.m  
 disp("== Project startup: StewartUCU ==");
 
 % 1) 基本环境
-clearvars; close all; clc;
+clearvars; close all; 
 
 % 2) 加载默认参数
 if exist("platform_default", "file")
